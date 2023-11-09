@@ -4,7 +4,13 @@
 
 using namespace std;
 
-string pregunta_aleatoria(){
+struct PREGUNTA
+{
+	string interrogante;
+	int respuesta;
+};
+
+PREGUNTA pregunta_aleatoria(){
 	string suma = "+";
 	string resta = "-";
 	string multi = "*";
@@ -26,9 +32,11 @@ string pregunta_aleatoria(){
 		}
 	}
 	
+	PREGUNTA* pregunta_nueva = new PREGUNTA();
+	pregunta_nueva->interrogante = pregunta;
+	pregunta_nueva->respuesta = 0;
 	
-	
-	return pregunta;
+	return pregunta_nueva;
 }
 
 int main(){
@@ -39,13 +47,13 @@ int main(){
 	cout<<"Bienvenido a este pequeno desafio.\n";
 	cout<<"responde 3 preguntas para superarlo.\n";
 	
-	cout<<"cuanto es " + pregunta_aleatoria() + "?\n";
+	cout<<"cuanto es " + pregunta_aleatoria()->interrogante + "?\n";
 	cin>>respuestas[0];
 	
-	cout<<"cuanto es " + pregunta_aleatoria() + "?\n";
+	cout<<"cuanto es " + pregunta_aleatoria()->interrogante + "?\n";
 	cin>>respuestas[1];
 	
-	cout<<"cuanto es " + pregunta_aleatoria() + "?\n";
+	cout<<"cuanto es " + pregunta_aleatoria()->interrogante + "?\n";
 	cin>>respuestas[2];
 	
 	if(respuestas[0] == 13){
